@@ -1,14 +1,5 @@
 /* Styles pour le modal d'ajout de données */
 
-/* Assurer que le modal est au-dessus de tous les autres éléments */
-.modal {
-    z-index: 1100 !important;
-}
-
-.modal-dialog {
-    z-index: 1110 !important;
-}
-
 /* Style pour les champs en lecture seule avec apparence désactivée */
 .form-control[readonly].disabled-look {
     background-color: #e9ecef;
