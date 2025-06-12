@@ -4,7 +4,7 @@ AgriCEN utilise l'authentification Microsoft Entra ID pour sécuriser l'accès �
 
 ## Écran de connexion
 
-![Écran de connexion](ecran_connexion.png)
+![Écran de connexion](img/ecran_connexion.png)
 
 L'écran de connexion est la première interface que vous rencontrez lors de l'accès à l'application. Il comporte un bouton "Se connecter avec Microsoft" qui vous redirige vers l'authentification Microsoft Entra ID.
 

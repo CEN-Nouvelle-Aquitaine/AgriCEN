@@ -10,7 +10,7 @@ Pour créer un nouveau contrat, suivez ces étapes :
 3. Remplissez les informations requises dans chaque onglet
 4. Enregistrez le contrat avec le bouton "Enregistrer les données" en bas du formulaire
 
-![Formulaire de création de contrat](../assets/contract-form.png)
+![Formulaire de création de contrat](img/formulaire_ajout.png)
 
 ## Structure du formulaire
 
@@ -71,22 +71,19 @@ Cette section permet de caractériser les milieux naturels concernés :
 
 Pour modifier un contrat :
 
-1. Depuis l'interface cartographique, cliquez sur l'icône de modification dans la liste des contrats
-2. Ou cliquez sur un site dans la carte puis sélectionnez "Modifier le contrat" dans l'infobulle
-3. Le formulaire d'édition s'ouvre avec les données existantes pré-remplies
-4. Effectuez vos modifications
-5. Cliquez sur "Sauvegarder" pour enregistrer les changements
+1. Depuis l'interface cartographique, cliquez sur l'icône du contrat souhaité puis cliquez sur "Modifier" en bas du volet latéral
+2. Le formulaire d'édition s'ouvre avec les données existantes pré-remplies
+3. Effectuez vos modifications
+4. Cliquez sur "Enregistrer les données" pour enregistrer les changements
 
 ## Suppression d'un contrat
 
 Pour supprimer un contrat :
 
-1. Depuis l'interface cartographique, cliquez sur l'icône de suppression dans la liste des contrats
-2. Une boîte de dialogue de confirmation apparaît
-3. Confirmez la suppression en cliquant sur "Supprimer"
+1. Depuis l'interface cartographique, cliquez sur l'icône du contrat souhaité puis cliquez sur "Supprimer" en bas du volet latéral
 
 !!! warning "Attention"
-    La suppression d'un contrat est irréversible. Toutes les données associées au contrat seront supprimées.
+    La suppression d'un contrat est irréversible. 
     
 ## Validation des données
 
@@ -94,6 +91,6 @@ Le formulaire intègre plusieurs validations pour garantir la qualité des donn�
 
 - Vérification des champs obligatoires
 - Validation des formats (dates, nombres)
-- Contrôle des relations entre les entités
+- ...
 
 Les erreurs sont affichées directement sous les champs concernés, avec des explications détaillées pour corriger rapidement les problèmes.

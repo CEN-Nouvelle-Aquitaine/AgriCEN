@@ -6,25 +6,16 @@ AgriCEN propose des outils avancés de visualisation et d'analyse des données p
 
 Les visualisations sont principalement accessibles via une intégration avec Apache Superset, un outil professionnel de Business Intelligence.
 
-![Tableau de bord Superset](../assets/dashboard.png)
+![Tableau de bord Superset](img/dashboard.png)
 
 ### Accès au tableau de bord
 
 Pour accéder au tableau de bord :
 
-1. Dans AgriCEN, cliquez sur le bouton "Tableau de bord" dans le menu principal
+1. Dans AgriCEN, cliquez sur l'onglet "Dataviz"
 2. Vous serez automatiquement redirigé vers l'interface Superset préchargée
-3. L'authentification est transparente, vous n'avez pas besoin de vous reconnecter
+3. Pas d'authentification requise (à modifier si besoin)
 
-### Fonctionnalités du tableau de bord
-
-Le tableau de bord Superset offre diverses visualisations :
-
-- **Carte de répartition** des sites et contrats
-- **Graphiques d'évolution** du nombre de contrats par année
-- **Diagrammes de répartition** par type de production
-- **Indicateurs statistiques** sur les surfaces contractualisées
-- **Filtres interactifs** pour affiner l'analyse
 
 ## Rapports exportables
 

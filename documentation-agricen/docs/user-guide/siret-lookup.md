@@ -10,22 +10,14 @@ Cette intégration dans AgriCEN vous permet de récupérer automatiquement les i
 
 ## Utilisation de la recherche SIRET
 
-### Lors de la création d'un contrat
+### Lors de la création ou de l'édition d'un contrat
 
-1. Dans le formulaire de création/modification de contrat, accédez à l'onglet "Société"
+1. Dans le formulaire de création/modification de contrat, accédez à l'onglet "Exploitation"
 2. Entrez le numéro SIRET (14 chiffres) dans le champ prévu à cet effet
 3. Cliquez sur le bouton "Rechercher"
 4. Si le SIRET est valide, les informations de l'entreprise seront automatiquement remplies
 
-![Recherche SIRET](../assets/siret-lookup.png)
-
-### Depuis la page principale
-
-Vous pouvez également effectuer une recherche SIRET depuis la page principale :
-
-1. Cliquez sur le bouton "Recherche SIRET" dans la barre d'outils
-2. Saisissez le numéro SIRET dans le champ
-3. Les résultats s'afficheront avec les informations disponibles et un lien vers un éventuel contrat existant
+![Recherche SIRET](img/recherche_siret.png)
 
 ## Informations récupérées
 
@@ -43,19 +35,12 @@ Ces informations sont directement intégrées dans le formulaire et seront enreg
 
 ### Vérification de contrat existant
 
-Lorsqu'un SIRET est recherché, le système vérifie automatiquement si un contrat existe déjà avec cette entreprise. Si c'est le cas :
+Lorsqu'un N° SIRET est récupéré via le formulaire d'édition d'un contrat, le système vérifie automatiquement si un contrat existe déjà avec cette entreprise. Si c'est le cas :
 
 - Une notification apparaît pour vous informer
 - Un lien vers le contrat existant est proposé
 - Vous pouvez choisir de continuer à créer un nouveau contrat ou d'éditer celui qui existe déjà
 
-### Mise en cache
-
-Pour améliorer les performances et limiter les appels à l'API externe :
-
-- Les données des entreprises déjà consultées sont stockées en base de données
-- Lors d'une nouvelle recherche sur un SIRET connu, les données sont récupérées depuis la base locale
-- Une option "Rafraîchir les données" permet de forcer une nouvelle requête vers l'API SIRENE
 
 ## Résolution des problèmes
 
@@ -74,4 +59,4 @@ En cas de problème avec la recherche automatique, vous pouvez toujours :
 
 1. Saisir manuellement les informations de l'entreprise
 2. Utiliser le site officiel [sirene.fr](https://sirene.fr) pour vérifier les informations
-3. Contacter l'administrateur si le problème persiste
+3. Contacter le service DSI si le problème persiste

@@ -1,10 +1,10 @@
 # Interface cartographique
 
-L'interface cartographique est le cœur de l'application AgriCEN. Elle permet de visualiser et d'interagir avec les sites du CEN et les contrats associés.
+L'interface cartographique est le cœur de l'application AgriCEN. Elle permet de visualiser et d'interagir avec les sites CEN et les contrats agricoles associés.
 
 ## Vue d'ensemble
 
-![Interface principale](../assets/map-interface.png)
+![Interface principale](img/map_interface.png)
 
 L'interface se compose de :
 
@@ -24,9 +24,9 @@ La carte utilise la bibliothèque Leaflet et offre les fonctionnalités suivante
 - **Sélection d'un site** : Cliquez sur un site pour afficher ses informations dans un volet latéral
 - **Fond de carte** : Changez le fond de carte via le bouton en haut à droite (satellite, OpenStreetMap, etc.)
 
-## Sites du CEN
+## Sites CEN
 
-Les sites du CEN sont représentés par des polygones verts transparents sur la carte. Deux types d'interactions sont possibles :
+Les sites CEN sont représentés par des polygones verts transparents sur la carte. Deux types d'interactions sont possibles :
 
 - Un simple clic permet d'ajouter un contrat sur le site
 - un simple passage de la souris sur le site permet de visualiser le nom du site et son code
