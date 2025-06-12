@@ -1,5 +1,5 @@
 site_name: Documentation AgriCEN
-site_url: https://cen-nouvelle-aquitaine.github.io/AgriCEN/
+site_url: https://cen-nouvelle-aquitaine.github.io/documentation_agricen/
 docs_dir: docs
 
 theme:
