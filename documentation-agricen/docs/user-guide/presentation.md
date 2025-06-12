@@ -5,6 +5,7 @@
 AgriCEN est une application web développée par la DSI du CEN-NA qui permet d'inventorier et de gérer les contrats agricoles liés aux différents sites CEN.
     
 L'application centralise les informations sur :
+
 - Les contrats agricoles établis entre le CEN-NA et les exploitants
 - Les agriculteurs partenaires et leurs exploitations
 - Les types de productions et leurs modes d'exploitation (bio ou conventionnel)

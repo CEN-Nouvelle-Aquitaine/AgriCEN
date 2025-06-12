@@ -337,7 +337,6 @@ Récupère les informations d'une entreprise via l'API SIRENE à partir d'un num
 }
 ```
 
-
 ## Intégration API externe : SIRENE (INSEE)
 
 L'application AgriCEN s'intègre avec l'API SIRENE de l'INSEE pour récupérer automatiquement les informations des entreprises agricoles à partir de leur numéro SIRET.
