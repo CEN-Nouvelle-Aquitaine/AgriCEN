@@ -1873,7 +1873,7 @@
     <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://api.insee.fr/api-sirene/3.11/siret/</span><span class="si">{</span><span class="n">siret</span><span class="si">}</span><span class="s2">&quot;</span>
     <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s2">&quot;accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;X-INSEE-Api-Key-Integration&quot;</span><span class="p">:</span> <span class="s2">&quot;[API_KEY]&quot;</span><span class="p">,</span>  <span class="c1"># Clé masquée dans la documentation</span>
+        <span class="s2">&quot;X-INSEE-Api-Key-Integration&quot;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;INSEE_API_KEY&quot;</span><span class="p">),</span>
     <span class="p">}</span>
 
     <span class="c1"># Appel à l&#39;API et traitement de la réponse</span>
