@@ -1,0 +1,371 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/css_modal_edition.css') }}">
+
+<div class="container mt-5 p-4 shadow-sm bg-white rounded">
+    <!-- Titre principal -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Modifier le contrat <span class="badge bg-secondary">#{{ contrat.id_contrat }}</span></h2>
+        <button id="backButton" class="btn btn-outline-secondary btn-sm">
+            <i class="bi bi-arrow-left"></i> Retour à la carte
+        </button>
+    </div>
+
+    <!-- Conteneur pour la carte et le formulaire -->
+    <div class="d-flex flex-wrap" style="min-height: 600px;">
+        <!-- Carte à gauche -->
+        <div class="flex-grow-1" id="map-container" style="min-width: 300px;">
+            <div id="small_map"></div>
+        </div>
+
+        <!-- Formulaire à droite -->
+        <div class="flex-grow-2 bg-light rounded shadow-sm" id="form-container" style="width: 65%;">
+            <!-- Onglets pour organiser les champs -->
+            <ul class="nav nav-tabs" id="modalTabs" role="tablist" style="position: sticky; top: 0; background: #f8f9fa; padding-top: 10px; z-index: 10;">
+                <li class="nav-item">
+                    <button class="nav-link active" id="infos-general-tab" data-bs-toggle="tab" data-bs-target="#infos-general" type="button" role="tab" aria-controls="infos-general" aria-selected="true">Informations générales</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" id="exploitation-tab" data-bs-toggle="tab" data-bs-target="#exploitation" type="button" role="tab" aria-controls="exploitation" aria-selected="false">Exploitation</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" id="contrat-tab" data-bs-toggle="tab" data-bs-target="#contrat" type="button" role="tab" aria-controls="contrat" aria-selected="false">Partenariat CEN</button>
+                </li>
+            </ul>
+            
+            <div class="p-4">
+                <form method="POST">
+                    {{ form.hidden_tag() }}
+
+                <!-- Contenu des onglets -->
+                <div class="tab-content mt-4">
+                    <!-- Onglet Informations générales -->
+                    <div class="tab-pane fade show active" id="infos-general" role="tabpanel" aria-labelledby="infos-general-tab">
+                        <div class="row gx-4 gy-3">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    {{ form.nom_site.label }}
+                                    {{ form.nom_site(class="form-control", readonly=True) }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ form.nom_agri.label }}
+                                    <div class="position-relative">
+                                        <input type="text" class="form-control" id="search_agriculteur" 
+                                            placeholder="Rechercher un exploitant existant...">
+                                        <div id="agriculteur_suggestions" class="position-absolute w-100 mt-1 bg-white border rounded shadow-sm" 
+                                            style="z-index: 1000; display: none;">
+                                        </div>
+                                    </div>
+                                    {{ form.nom_agri(class="form-control mt-2", id="modal_nom_agri") }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ form.date_naissance.label }}
+                                    {{ form.date_naissance(class="form-control") }}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    {{ form.code_site.label }}
+                                    {{ form.code_site(class="form-control") }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ form.prenom_agri.label }}
+                                    {{ form.prenom_agri(class="form-control", id="modal_prenom_agri") }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ form.contact.label }}
+                                    {{ form.contact(class="form-control") }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Onglet Exploitation -->
+                    <div class="tab-pane fade" id="exploitation" role="tabpanel" aria-labelledby="exploitation-tab">
+                        <!-- Section Informations Entreprise -->
+                        <div class="card mb-4">
+                            <div class="card-header bg-light">
+                                <h5 class="card-title mb-0">Informations Entreprise</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row gx-4 gy-3">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            {{ form.siret.label }}
+                                            <div class="input-group">
+                                                {{ form.siret(class="form-control") }}
+                                                <button type="button" class="btn btn-primary" name="fetch_sirene">
+                                                    <i class="fas fa-sync-alt"></i> Actualiser
+                                                </button>
+                                            </div>
+                                            {% for error in form.siret.errors %}
+                                                <div class="text-danger">{{ error }}</div>
+                                            {% endfor %}
+                                        </div>
+                                        <div class="mb-3">
+                                            {{ form.activite_principale.label }}
+                                            {{ form.activite_principale(class="form-control", readonly=True) }}
+                                        </div>
+                                        <div class="mb-3">
+                                            {{ form.categorie_juridique.label }}
+                                            {{ form.categorie_juridique(class="form-control", readonly=True) }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            {{ form.nom_societe.label }}
+                                            {{ form.nom_societe(class="form-control", readonly=True) }}
+                                        </div>
+                                        <div class="mb-3">
+                                            {{ form.adresse_etablissement.label }}
+                                            {{ form.adresse_etablissement(class="form-control", readonly=True) }}
+                                        </div>
+                                        <div class="mb-3">
+                                            {{ form.tranche_effectif.label }}
+                                            {{ form.tranche_effectif(class="form-control", readonly=True)}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Section Production -->
+                        <div class="card">
+                            <div class="card-header bg-light">
+                                <h5 class="card-title mb-0">Production</h5>
+                            </div>
+                            <div class="card-body">
+                                <div id="production-container">
+                                    <div class="production-entry mb-3">
+                                        <div class="row gx-4 gy-3">
+                                            <div class="col-12">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Types de Production (bio)</label>
+                                                    <input class="form-control type-production-bio-tagify" name="type_production_bio_display" placeholder="Ajouter des types de production bio">
+                                                    <input type="hidden" name="mode_production_bio" value="1"> <!-- Valeur fixe pour Bio -->
+                                                    <select class="type-production-bio-select" name="type_production_bio[]" multiple hidden>
+                                                        {% for value, label in form.type_production.choices %}
+                                                            <option value="{{ value }}" {% if form.type_production_bio and value|int in form.type_production_bio %}selected{% endif %}>{{ label }}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Types de Production (conventionnelle)</label>
+                                                    <input class="form-control type-production-conv-tagify" name="type_production_conv_display" placeholder="Ajouter des types de production conventionnelle">
+                                                    <input type="hidden" name="mode_production_conv" value="2"> <!-- Valeur fixe pour Conventionnelle -->
+                                                    <select class="type-production-conv-select" name="type_production_conv[]" multiple hidden>
+                                                        {% for value, label in form.type_production.choices %}
+                                                            <option value="{{ value }}" {% if form.type_production_conv and value|int in form.type_production_conv %}selected{% endif %}>{{ label }}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                    <input type="hidden" name="mode_production_conv" value="2"> <!-- Valeur fixe pour Conventionnelle -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-4">
+                                    <div class="col-12">
+                                        <div class="mb-3">
+                                            <label for="produit_fini_tagify" class="form-label">Produits Finis</label>
+                                            <input id="produit_fini_tagify" class="form-control" name="produit_fini_display" placeholder="Ajouter des produits finis">
+                                            <select id="produit_fini" name="produit_fini" multiple hidden>
+                                                {% for value, label in form.produit_fini.choices %}
+                                                    <option value="{{ value }}" {% if form.produit_fini.data and value in form.produit_fini.data %}selected{% endif %}>{{ label }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Onglet Partenariat CEN -->
+                    <div class="tab-pane fade" id="contrat" role="tabpanel" aria-labelledby="contrat-tab">
+                        <div class="row gx-4 gy-3">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    {{ form.appellation_contrat.label }}
+                                    {{ form.appellation_contrat(class="form-control") }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ form.date_signature.label }}
+                                    {{ form.date_signature(class="form-control") }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ form.date_prise_effet.label }}
+                                    {{ form.date_prise_effet(class="form-control") }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ form.date_fin.label }}
+                                    {{ form.date_fin(class="form-control") }}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    {{ form.nom_referent.label }}
+                                    <div class="position-relative">
+                                        <input type="text" class="form-control" id="search_referent" 
+                                            placeholder="Rechercher un référent existant...">
+                                        <div id="referent_suggestions" class="position-absolute w-100 mt-1 bg-white border rounded shadow-sm" 
+                                            style="z-index: 1000; display: none;">
+                                        </div>
+                                    </div>
+                                    {{ form.nom_referent(class="form-control mt-2", id="modal_nom_referent") }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ form.prenom_referent.label }}
+                                    {{ form.prenom_referent(class="form-control", id="modal_prenom_referent") }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ form.surf_contractualisee.label }}
+                                    {{ form.surf_contractualisee(class="form-control") }}
+                                </div>
+                                <div class="mb-3">
+                                    <label for="type_milieu_tagify" class="form-label">Types de Milieu</label>
+                                    <input id="type_milieu_tagify" class="form-control" name="type_milieu_display" placeholder="Ajouter des types de milieu">
+                                    <select id="type_milieu" name="type_milieu" multiple hidden>
+                                        {% for value, label in form.type_milieu.choices %}
+                                            <option value="{{ value }}" {% if form.type_milieu.data and value in form.type_milieu.data %}selected{% endif %}>{{ label }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mt-4">
+                                <!-- Encart d'information pour les autres contrats de la même société -->
+                                <div class="card border-info mb-3">
+                                    <div class="card-header bg-info text-white">
+                                        <i class="fas fa-link me-2"></i>Autres contrats de {{ contrat.societe.nom_societe }} <small><em>(cliquer sur un contrat pour l'éditer)</em></small>
+                                    </div>
+                                    <div class="card-body p-0">
+                                        {% if autres_contrats %}
+                                        <div class="list-group list-group-flush">
+                                            {% for autre_contrat in autres_contrats %}
+                                            <a href="{{ url_for('edit_contract', contract_id=autre_contrat.id_contrat) }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center border-0">
+                                                <span>
+                                                    <i class="fas fa-file-contract me-2 text-secondary"></i>
+                                                    Contrat #{{ autre_contrat.id_contrat }}
+                                                </span>
+                                                {% if autre_contrat.type_contrat %}
+                                                <span class="badge bg-primary rounded-pill">{{ autre_contrat.type_contrat.appellation_contrat }}</span>
+                                                {% else %}
+                                                <span class="badge bg-secondary rounded-pill">Type non spécifié</span>
+                                                {% endif %}
+                                            </a>
+                                            {% endfor %}
+                                        </div>
+                                        <div class="card-footer bg-transparent text-muted small">
+                                            <i class="fas fa-info-circle me-1"></i>
+                                            {{ autres_contrats|length }} autre(s) contrat(s) pour cette société
+                                        </div>
+                                        {% else %}
+                                        <div class="card-body">
+                                            <p class="card-text text-muted mb-0">
+                                                <i class="fas fa-info-circle me-2"></i>
+                                                Aucun autre contrat pour cette société
+                                            </p>
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Champ caché pour stocker les données de production -->
+                <input type="hidden" id="all-productions-data" name="all_productions" value="[]">
+
+                <hr class="my-4">
+                
+                    <!-- Boutons d'action -->
+                    <div class="d-flex justify-content-between mb-5">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-save"></i> Enregistrer les modifications
+                        </button>
+                    </div>
+                    
+                    <!-- Espace supplémentaire en bas du formulaire -->
+                    <div class="mb-4"></div>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    
+    // Initialisation de la carte Leaflet
+    const map = L.map('small_map');
+
+    // Ajout du fond de carte OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Ajout des sites CEN depuis le GeoJSON
+    const sitesLayer = L.geoJSON({{ geojson|tojson }}, {
+        style: function(feature) {
+            return {
+                color: '#3388ff',
+                weight: 2,
+                opacity: 0.8,
+                fillColor: '#3388ff',
+                fillOpacity: 0.3
+            };
+        },
+        onEachFeature: function(feature, layer) {
+            if (feature.properties) {
+                layer.bindPopup(`
+                    <strong>${feature.properties.nom_site || 'Site sans nom'}</strong><br>
+                    Code: ${feature.properties.codesite || 'Non spécifié'}
+                `);
+            }
+        }
+    }).addTo(map);
+
+    // Ajouter un marqueur discret pour le contrat sélectionné
+    const contractMarker = L.marker([{{ contrat.latitude }}, {{ contrat.longitude }}], {
+        icon: L.divIcon({
+            className: 'contract-marker',
+            html: '<div style="background-color: #3388ff; width: 10px; height: 10px; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 3px rgba(0,0,0,0.3);"></div>',
+            iconSize: [14, 14],
+            iconAnchor: [7, 7]
+        })
+    }).addTo(map);
+
+    // Ajouter un popup simple au survol du marqueur
+    contractMarker.bindTooltip(
+        "<div style='text-align: center;'>"
+        + "<strong>Contrat #{{ contrat.id_contrat }}</strong><br>"
+        + "{{ contrat.type_contrat.appellation_contrat if contrat.type_contrat else 'Type non spécifié' }}"
+        + "</div>",
+        {offset: [0, -7], direction: 'top', opacity: 0.9}
+    );
+
+    // Centrer d'abord la carte sur le contrat avec un zoom approprié
+    map.setView([{{ contrat.latitude }}, {{ contrat.longitude }}], 14);
+
+
+    // Définition de l'URL de la page de carte pour le gestionnaire de navigation
+    window.mapPageUrl = "{{ url_for('map_page') }}";
+
+</script>
+
+<!-- Inclusion du script de gestion SIRET -->
+<script src="{{ url_for('static', filename='js/siret_handler.js') }}"></script>
+<!-- Inclusion des scripts de recherche agriculteur et référent -->
+<script src="{{ url_for('static', filename='js/agriculteur_search.js') }}"></script>
+<script src="{{ url_for('static', filename='js/referent_search.js') }}"></script>
+<!-- Inclusion du script pour la gestion des champs Tagify -->
+<script src="{{ url_for('static', filename='js/edit_contract_tagify.js') }}"></script>
+<!-- Inclusion du script pour la gestion de la navigation -->
+<script src="{{ url_for('static', filename='js/navigation_handler.js') }}"></script>
+
+{% endblock %}

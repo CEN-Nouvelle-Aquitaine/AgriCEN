@@ -1,0 +1,250 @@
+<!-- Lien vers le fichier CSS dédié pour le modal d'ajout de données -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/modal_add_data.css') }}">
+
+
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+            <form id="addForm" method="POST">
+                {{ form.hidden_tag() }}
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addModalLabel">Formulaire d'ajout de données</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <!-- Onglets pour organiser les champs -->
+                    <ul class="nav nav-tabs" id="modalTabs" role="tablist">
+                        <li class="nav-item">
+                            <button class="nav-link active" id="infos-general-tab" data-bs-toggle="tab" data-bs-target="#infos-general" type="button" role="tab" aria-controls="infos-general" aria-selected="true">Informations générales</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" id="exploitation-tab" data-bs-toggle="tab" data-bs-target="#exploitation" type="button" role="tab" aria-controls="exploitation" aria-selected="false">Exploitation</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" id="contrat-tab" data-bs-toggle="tab" data-bs-target="#contrat" type="button" role="tab" aria-controls="contrat" aria-selected="false">Partenariat CEN</button>
+                        </li>
+                    </ul>
+
+                    <!-- Contenu des onglets -->
+                    <div class="tab-content mt-4">
+                        <!-- Onglet Informations générales -->
+                        <div class="tab-pane fade show active" id="infos-general" role="tabpanel" aria-labelledby="infos-general-tab">
+                            <div class="row gx-4 gy-3">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        {{ form.nom_site.label }}
+                                        {{ form.nom_site(class="form-control", id="modal_nom_site", readonly=True) }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        {{ form.code_site.label }}
+                                        {{ form.code_site(class="form-control", id="modal_code_site", readonly=True) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Onglet Exploitation -->
+                        <div class="tab-pane fade" id="exploitation" role="tabpanel" aria-labelledby="exploitation-tab">
+                            <div class="row gx-4 gy-3">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        {{ form.siret.label }}
+                                        <div class="input-group">
+                                            {{ form.siret(class="form-control") }}
+                                            <button type="button" class="btn btn-primary" name="fetch_sirene">Rechercher</button>
+                                        </div>
+                                        {% for error in form.siret.errors %}
+                                            <div class="text-danger">{{ error }}</div>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="mb-4">
+                                        <h5 class="mb-3">Informations sur l'exploitant</h5>
+                                        
+                                        <!-- Nouveau champ de recherche avec autocomplétion -->
+                                        <div class="mb-3">
+                                            <label for="search_agriculteur" class="form-label">Rechercher un(e) exploitant(e)</label>
+                                            <div class="position-relative">
+                                                <input type="text" class="form-control" id="search_agriculteur" 
+                                                    placeholder="Rechercher un exploitant existant...">
+                                                <div id="agriculteur_suggestions" class="position-absolute w-100 mt-1 bg-white border rounded shadow-sm" 
+                                                    style="z-index: 1000; display: none;">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            {{ form.nom_agri.label }}
+                                            {{ form.nom_agri(class="form-control", id="modal_nom_agri") }}
+                                        </div>
+                                        <div class="mb-3">
+                                            {{ form.prenom_agri.label }}
+                                            {{ form.prenom_agri(class="form-control", id="modal_prenom_agri") }}
+                                        </div>
+                                        <div class="mb-3">
+                                            {{ form.date_naissance.label }}
+                                            {{ form.date_naissance(class="form-control") }}
+                                            <small class="text-muted">Ce champ est facultatif.</small>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div id="production-container">
+                                                <div class="production-entry mb-3">
+                                                    <div class="row gx-4 gy-3">
+                                                        <div class="col-12">
+                                                            <h5 class="mb-3">Production</h5>
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Types de Production Bio</label>
+                                                                <input class="form-control type-production-bio-tagify" name="type_production_bio_display" placeholder="Ajouter des types de production bio">
+                                                                <select class="type-production-bio-select" name="type_production_bio[]" multiple hidden>
+                                                                    {% for value, label in form.type_production.choices %}
+                                                                        <option value="{{ value }}">{{ label }}</option>
+                                                                    {% endfor %}
+                                                                </select>
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label class="form-label">Types de Production Conventionnelle</label>
+                                                                <input class="form-control type-production-conv-tagify" name="type_production_conv_display" placeholder="Ajouter des types de production conventionnelle">
+                                                                <select class="type-production-conv-select" name="type_production_conv[]" multiple hidden>
+                                                                    {% for value, label in form.type_production.choices %}
+                                                                        <option value="{{ value }}">{{ label }}</option>
+                                                                    {% endfor %}
+                                                                </select>
+                                                            </div>
+                                                            <!-- Champ caché pour la validation du formulaire -->
+                                                            <select class="type-production-select" name="type_production" multiple hidden>
+                                                                {% for value, label in form.type_production.choices %}
+                                                                    <option value="{{ value }}">{{ label }}</option>
+                                                                {% endfor %}
+                                                            </select>
+                                                            <!-- Champ caché pour le mode de production (pour la validation) -->
+                                                            <input type="hidden" name="mode_production" value="1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        {{ form.nom_societe.label }}
+                                        {{ form.nom_societe(class="form-control", readonly=True) }}
+                                    </div>
+                                    <div class="mb-3">
+                                        {{ form.adresse_etablissement.label }}
+                                        {{ form.adresse_etablissement(class="form-control", readonly=True) }}
+                                    </div>
+                                    <div class="mb-3">
+                                        {{ form.activite_principale.label }}
+                                        {{ form.activite_principale(class="form-control", readonly=True) }}
+                                    </div>
+                                    <div class="mb-3">
+                                        {{ form.categorie_juridique.label }}
+                                        {{ form.categorie_juridique(class="form-control", readonly=True) }}
+                                    </div>
+                                    <div class="mb-3">
+                                        {{ form.tranche_effectif.label }}
+                                        {{ form.tranche_effectif(class="form-control", readonly=True) }}
+                                    </div>
+                                    <div class="mb-3">
+                                        {{ form.contact.label }}
+                                        {{ form.contact(class="form-control") }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Onglet Partenariat CEN -->
+                        <div class="tab-pane fade" id="contrat" role="tabpanel" aria-labelledby="contrat-tab">
+                            <div id="contracts-container">
+                                <div class="contract-entry mb-4 border-bottom pb-3">
+                                    <h5 class="mb-3">Contrat #1</h5>
+                                    <div class="row gx-4 gy-3">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                {{ form.appellation_contrat.label }}
+                                                {{ form.appellation_contrat(class="form-control appellation-contrat") }}
+                                            </div>
+                                            <div class="mb-3">
+                                                {{ form.date_signature.label }}
+                                                {{ form.date_signature(class="form-control date-signature") }}
+                                            </div>
+                                            <div class="mb-3">
+                                                {{ form.date_prise_effet.label }}
+                                                {{ form.date_prise_effet(class="form-control date-prise-effet") }}
+                                            </div>
+                                            <div class="mb-3">
+                                                {{ form.date_fin.label }}
+                                                {{ form.date_fin(class="form-control date-fin") }}
+                                            </div>
+                                            <div class="mb-3">
+                                                {{ form.produit_fini.label }}
+                                                <input id="produit_fini_tagify" class="form-control" name="produit_fini_display" placeholder="Ajouter des produits finis">
+                                                <select id="produit_fini" name="produit_fini" multiple hidden>
+                                                    {% for value, label in form.produit_fini.choices %}
+                                                        <option value="{{ value }}">{{ label }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <!-- Nouveau champ de recherche avec autocomplétion -->
+                                            <div class="mb-3">
+                                                <label for="search_referent" class="form-label">Rechercher un(e) référent(e)</label>
+                                                <div class="position-relative">
+                                                    <input type="text" class="form-control search-referent" id="search_referent" 
+                                                            placeholder="Rechercher un(e) référent(e) existant(e)...">
+                                                    <div class="referent-suggestions position-absolute w-100 mt-1 bg-white border rounded shadow-sm" 
+                                                        style="z-index: 1000; display: none;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                {{ form.nom_referent.label }}
+                                                {{ form.nom_referent(class="form-control nom-referent", id="modal_nom_referent") }}
+                                            </div>
+                                            <div class="mb-3">
+                                                {{ form.prenom_referent.label }}
+                                                {{ form.prenom_referent(class="form-control prenom-referent", id="modal_prenom_referent") }}
+                                            </div>
+                                            <div class="mb-3">
+                                                {{ form.surf_contractualisee.label }}
+                                                {{ form.surf_contractualisee(class="form-control surf-contractualisee") }}
+                                            </div>
+                                            <div class="mb-3">
+                                                {{ form.type_milieu.label }}
+                                                <input class="form-control type-milieu-tagify" name="type_milieu_display" placeholder="Ajouter des types de milieu">
+                                                <select class="type-milieu-select" name="type_milieu" multiple hidden>
+                                                    {% for value, label in form.type_milieu.choices %}
+                                                        <option value="{{ value }}">{{ label }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Champ caché pour stocker les données des contrats -->
+                            <input type="hidden" id="contracts-data" name="contracts_data" value="[]">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    {{ form.submit(class="btn btn-primary") }}
+                    <button type="button" id="reset-form-button" class="btn btn-warning" onclick="FormHandler.resetForm()">Réinitialiser le formulaire</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="{{ url_for('static', filename='js/tagify_handler.js') }}"></script>
+<script src="{{ url_for('static', filename='js/agriculteur_search.js') }}"></script>
+<script src="{{ url_for('static', filename='js/referent_search.js') }}"></script>
+<script src="{{ url_for('static', filename='js/siret_handler.js') }}"></script>
+<script src="{{ url_for('static', filename='js/form_handler.js') }}"></script>
