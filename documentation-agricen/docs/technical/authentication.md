@@ -6,22 +6,7 @@ AgriCEN utilise l'authentification Microsoft Entra ID pour sécuriser l'accès �
 
 Le système d'authentification est basé sur le protocole OAuth 2.0 et OpenID Connect, avec Microsoft Identity Platform comme fournisseur d'identité :
 
-```mermaid
-sequenceDiagram
-    participant U as Utilisateur
-    participant A as Application AgriCEN
-    participant M as Microsoft Azure AD
-    
-    U->>A: Accès à l'application
-    A->>U: Redirection vers la page de login
-    U->>M: Authentification (identifiants Microsoft)
-    M->>U: Demande d'autorisation
-    U->>M: Autorisation accordée
-    M->>A: Code d'autorisation
-    A->>M: Échange code contre token
-    M->>A: Token d'accès + token d'identité
-    A->>U: Redirection vers l'application (authentifié)
-```
+![Authentification](img/architecture_authentification.png)
 
 ## Implémentation
 
