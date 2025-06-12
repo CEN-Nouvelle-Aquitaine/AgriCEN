@@ -525,18 +525,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#lors-de-la-creation-dun-contrat" class="md-nav__link">
+  <a href="#lors-de-la-creation-ou-de-ledition-dun-contrat" class="md-nav__link">
     <span class="md-ellipsis">
-      Lors de la création d'un contrat
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#depuis-la-page-principale" class="md-nav__link">
-    <span class="md-ellipsis">
-      Depuis la page principale
+      Lors de la création ou de l'édition d'un contrat
     </span>
   </a>
   
@@ -570,15 +561,6 @@
   <a href="#verification-de-contrat-existant" class="md-nav__link">
     <span class="md-ellipsis">
       Vérification de contrat existant
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mise-en-cache" class="md-nav__link">
-    <span class="md-ellipsis">
-      Mise en cache
     </span>
   </a>
   
@@ -995,18 +977,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#lors-de-la-creation-dun-contrat" class="md-nav__link">
+  <a href="#lors-de-la-creation-ou-de-ledition-dun-contrat" class="md-nav__link">
     <span class="md-ellipsis">
-      Lors de la création d'un contrat
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#depuis-la-page-principale" class="md-nav__link">
-    <span class="md-ellipsis">
-      Depuis la page principale
+      Lors de la création ou de l'édition d'un contrat
     </span>
   </a>
   
@@ -1040,15 +1013,6 @@
   <a href="#verification-de-contrat-existant" class="md-nav__link">
     <span class="md-ellipsis">
       Vérification de contrat existant
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mise-en-cache" class="md-nav__link">
-    <span class="md-ellipsis">
-      Mise en cache
     </span>
   </a>
   
@@ -1114,21 +1078,14 @@
 <p>L'API SIRENE (Système Informatisé du Répertoire National des Entreprises et des Établissements) est un service proposé par l'INSEE qui permet d'accéder aux informations légales sur les entreprises et établissements français.</p>
 <p>Cette intégration dans AgriCEN vous permet de récupérer automatiquement les informations officielles d'une entreprise sans avoir à les saisir manuellement, réduisant ainsi les erreurs de saisie.</p>
 <h2 id="utilisation-de-la-recherche-siret">Utilisation de la recherche SIRET</h2>
-<h3 id="lors-de-la-creation-dun-contrat">Lors de la création d'un contrat</h3>
+<h3 id="lors-de-la-creation-ou-de-ledition-dun-contrat">Lors de la création ou de l'édition d'un contrat</h3>
 <ol>
-<li>Dans le formulaire de création/modification de contrat, accédez à l'onglet "Société"</li>
+<li>Dans le formulaire de création/modification de contrat, accédez à l'onglet "Exploitation"</li>
 <li>Entrez le numéro SIRET (14 chiffres) dans le champ prévu à cet effet</li>
 <li>Cliquez sur le bouton "Rechercher"</li>
 <li>Si le SIRET est valide, les informations de l'entreprise seront automatiquement remplies</li>
 </ol>
-<p><img alt="Recherche SIRET" src="../assets/siret-lookup.png" /></p>
-<h3 id="depuis-la-page-principale">Depuis la page principale</h3>
-<p>Vous pouvez également effectuer une recherche SIRET depuis la page principale :</p>
-<ol>
-<li>Cliquez sur le bouton "Recherche SIRET" dans la barre d'outils</li>
-<li>Saisissez le numéro SIRET dans le champ</li>
-<li>Les résultats s'afficheront avec les informations disponibles et un lien vers un éventuel contrat existant</li>
-</ol>
+<p><img alt="Recherche SIRET" src="../img/recherche_siret.png" /></p>
 <h2 id="informations-recuperees">Informations récupérées</h2>
 <p>La recherche SIRET permet de récupérer automatiquement les informations suivantes :</p>
 <ul>
@@ -1141,18 +1098,11 @@
 <p>Ces informations sont directement intégrées dans le formulaire et seront enregistrées dans la base de données lors de la sauvegarde du contrat.</p>
 <h2 id="fonctions-avancees">Fonctions avancées</h2>
 <h3 id="verification-de-contrat-existant">Vérification de contrat existant</h3>
-<p>Lorsqu'un SIRET est recherché, le système vérifie automatiquement si un contrat existe déjà avec cette entreprise. Si c'est le cas :</p>
+<p>Lorsqu'un N° SIRET est récupéré via le formulaire d'édition d'un contrat, le système vérifie automatiquement si un contrat existe déjà avec cette entreprise. Si c'est le cas :</p>
 <ul>
 <li>Une notification apparaît pour vous informer</li>
 <li>Un lien vers le contrat existant est proposé</li>
 <li>Vous pouvez choisir de continuer à créer un nouveau contrat ou d'éditer celui qui existe déjà</li>
-</ul>
-<h3 id="mise-en-cache">Mise en cache</h3>
-<p>Pour améliorer les performances et limiter les appels à l'API externe :</p>
-<ul>
-<li>Les données des entreprises déjà consultées sont stockées en base de données</li>
-<li>Lors d'une nouvelle recherche sur un SIRET connu, les données sont récupérées depuis la base locale</li>
-<li>Une option "Rafraîchir les données" permet de forcer une nouvelle requête vers l'API SIRENE</li>
 </ul>
 <h2 id="resolution-des-problemes">Résolution des problèmes</h2>
 <h3 id="siret-non-trouve">SIRET non trouvé</h3>
@@ -1168,7 +1118,7 @@
 <ol>
 <li>Saisir manuellement les informations de l'entreprise</li>
 <li>Utiliser le site officiel <a href="https://sirene.fr">sirene.fr</a> pour vérifier les informations</li>
-<li>Contacter l'administrateur si le problème persiste</li>
+<li>Contacter le service DSI si le problème persiste</li>
 </ol>
 
 
