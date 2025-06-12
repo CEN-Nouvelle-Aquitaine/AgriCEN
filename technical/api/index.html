@@ -6,8 +6,6 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Documentation de l'application de gestion des contrats agricoles pour le CEN">
-      
       
       
       
@@ -954,6 +952,75 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#integration-api-externe-sirene-insee" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intégration API externe : SIRENE (INSEE)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Intégration API externe : SIRENE (INSEE)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description-de-lintegration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description de l'intégration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-dans-agricen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implémentation dans AgriCEN
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#donnees-recuperees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Données récupérées
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#format-de-reponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      Format de réponse
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utilisation-dans-lapplication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Utilisation dans l'application
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-des-erreurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gestion des erreurs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#appel-des-api-depuis-le-frontend" class="md-nav__link">
     <span class="md-ellipsis">
       Appel des API depuis le frontend
@@ -1428,6 +1495,75 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#integration-api-externe-sirene-insee" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intégration API externe : SIRENE (INSEE)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Intégration API externe : SIRENE (INSEE)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description-de-lintegration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description de l'intégration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-dans-agricen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implémentation dans AgriCEN
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#donnees-recuperees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Données récupérées
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#format-de-reponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      Format de réponse
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utilisation-dans-lapplication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Utilisation dans l'application
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-des-erreurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gestion des erreurs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#appel-des-api-depuis-le-frontend" class="md-nav__link">
     <span class="md-ellipsis">
       Appel des API depuis le frontend
@@ -1720,6 +1856,65 @@
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+<h2 id="integration-api-externe-sirene-insee">Intégration API externe : SIRENE (INSEE)</h2>
+<p>L'application AgriCEN s'intègre avec l'API SIRENE de l'INSEE pour récupérer automatiquement les informations des entreprises agricoles à partir de leur numéro SIRET.</p>
+<h3 id="description-de-lintegration">Description de l'intégration</h3>
+<p>L'API SIRENE permet d'accéder à la base SIRENE (Système Informatique pour le Répertoire des Entreprises et des Établissements) qui contient les informations sur toutes les entreprises et établissements français.</p>
+<h3 id="implementation-dans-agricen">Implémentation dans AgriCEN</h3>
+<p>L'application utilise la fonction <code>fetch_siret_data</code> dans <code>views.py</code> qui encapsule les appels à l'API SIRENE :</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fetch_siret_data</span><span class="p">(</span><span class="n">siret</span><span class="p">,</span> <span class="n">flash_messages</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Récupère les informations d&#39;une entreprise via l&#39;API SIRENE en fonction du numéro SIRET.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Validation du SIRET (14 chiffres)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">siret</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">siret</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">14</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">siret</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;Le numéro SIRET est invalide.&quot;</span><span class="p">},</span> <span class="mi">400</span>
+
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://api.insee.fr/api-sirene/3.11/siret/</span><span class="si">{</span><span class="n">siret</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;X-INSEE-Api-Key-Integration&quot;</span><span class="p">:</span> <span class="s2">&quot;[API_KEY]&quot;</span><span class="p">,</span>  <span class="c1"># Clé masquée dans la documentation</span>
+    <span class="p">}</span>
+
+    <span class="c1"># Appel à l&#39;API et traitement de la réponse</span>
+    <span class="c1"># ...</span>
+</code></pre></div>
+<h3 id="donnees-recuperees">Données récupérées</h3>
+<p>La fonction extrait et structure les informations suivantes de l'API SIRENE :</p>
+<ul>
+<li><strong>SIREN</strong> : Identifiant de l'entreprise</li>
+<li><strong>Dénomination</strong> : Nom officiel de l'entreprise</li>
+<li><strong>Activité principale</strong> : Code NAF/APE</li>
+<li><strong>Catégorie juridique</strong> : Forme juridique (SARL, SA, etc.)</li>
+<li><strong>Tranche d'effectif</strong> : Nombre approximatif d'employés</li>
+<li><strong>Adresse complète</strong> : Adresse formatée de l'établissement</li>
+</ul>
+<h3 id="format-de-reponse">Format de réponse</h3>
+<p>Une réponse réussie renvoie un objet structuré avec les informations de l'entreprise :</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;siren&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;123456789&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;denomination&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EXPLOITATION AGRICOLE EXEMPLE&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;activite_principale&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;01.11Z&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;categorie_juridique&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5499&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;tranche_effectif&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;11&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;adresse_etablissement&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;123 ROUTE DES CHAMPS, 33000 BORDEAUX&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="utilisation-dans-lapplication">Utilisation dans l'application</h3>
+<p>Cette API est principalement utilisée pour :</p>
+<ol>
+<li>Pré-remplir automatiquement les informations de l'exploitation agricole lors de la création/modification de contrats</li>
+<li>Vérifier et valider les numéros SIRET saisis par les utilisateurs</li>
+<li>S'assurer de la cohérence des données enregistrées</li>
+</ol>
+<h3 id="gestion-des-erreurs">Gestion des erreurs</h3>
+<p>La fonction gère plusieurs cas d'erreur :</p>
+<ul>
+<li>SIRET invalide (format incorrect)</li>
+<li>Établissement non trouvé</li>
+<li>Erreurs d'API (problèmes d'autorisation, timeout, etc.)</li>
+<li>Erreurs de communication réseau</li>
+</ul>
 <h2 id="appel-des-api-depuis-le-frontend">Appel des API depuis le frontend</h2>
 <p>Exemple d'appel d'API depuis JavaScript :</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Recherche d&#39;agriculteur</span>
