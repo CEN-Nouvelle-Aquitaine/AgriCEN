@@ -153,7 +153,7 @@ def fetch_siret_data(siret, flash_messages = False):
     url = f"https://api.insee.fr/api-sirene/3.11/siret/{siret}"
     headers = {
         "accept": "application/json",
-        "X-INSEE-Api-Key-Integration": "3f98f3ce-54c4-42eb-98f3-ce54c4f2eb52",
+        "X-INSEE-Api-Key-Integration": os.environ.get("INSEE_API_KEY"),
     }
 
     try:
