@@ -1,0 +1,1360 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation de l'application de gestion des contrats agricoles pour le CEN">
+      
+      
+      
+      
+        <link rel="prev" href="../../technical/configuration/">
+      
+      
+        <link rel="next" href="../configuration/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Installation - Documentation AgriCEN</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="light-green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#installation" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../.." title="Documentation AgriCEN" class="md-header__button md-logo" aria-label="Documentation AgriCEN" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation AgriCEN
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Installation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Accueil
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../user-guide/presentation/" class="md-tabs__link">
+          
+  
+  
+  Guide utilisateur
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../technical/architecture/" class="md-tabs__link">
+          
+  
+  
+  Documentation technique
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Développement
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Documentation AgriCEN" class="md-nav__button md-logo" aria-label="Documentation AgriCEN" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Documentation AgriCEN
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Accueil
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Guide utilisateur
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Guide utilisateur
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/presentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Présentation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/login/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Connexion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/map-interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Interface cartographique
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/contract-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gestion des contrats
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/siret-lookup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Recherche SIRET
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/data-visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visualisation des données
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Documentation technique
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Documentation technique
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/data-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Modèle de données
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authentication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Développement
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Développement
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prérequis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recuperation-du-code-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      Récupération du code source
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creation-de-lenvironnement-virtuel-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Création de l'environnement virtuel Python
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Création de l&#39;environnement virtuel Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sous-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sous Windows
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sous-linuxmacos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sous Linux/macOS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-des-dependances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation des dépendances
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-de-la-base-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration de la base de données
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration de la base de données">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creation-des-bases-de-donnees-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      Création des bases de données PostgreSQL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fichier-env" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fichier .env
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-microsoft-entra-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration Microsoft Entra ID
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lancement-du-serveur-de-developpement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lancement du serveur de développement
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolution-des-problemes-courants" class="md-nav__link">
+    <span class="md-ellipsis">
+      Résolution des problèmes courants
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Résolution des problèmes courants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problemes-de-connexion-a-la-base-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problèmes de connexion à la base de données
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#erreurs-lors-de-lauthentification-microsoft" class="md-nav__link">
+    <span class="md-ellipsis">
+      Erreurs lors de l'authentification Microsoft
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problemes-avec-les-donnees-spatiales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problèmes avec les données spatiales
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Déploiement
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prérequis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recuperation-du-code-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      Récupération du code source
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creation-de-lenvironnement-virtuel-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Création de l'environnement virtuel Python
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Création de l&#39;environnement virtuel Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sous-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sous Windows
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sous-linuxmacos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sous Linux/macOS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-des-dependances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation des dépendances
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-de-la-base-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration de la base de données
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration de la base de données">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creation-des-bases-de-donnees-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      Création des bases de données PostgreSQL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fichier-env" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fichier .env
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-microsoft-entra-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration Microsoft Entra ID
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lancement-du-serveur-de-developpement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lancement du serveur de développement
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolution-des-problemes-courants" class="md-nav__link">
+    <span class="md-ellipsis">
+      Résolution des problèmes courants
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Résolution des problèmes courants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problemes-de-connexion-a-la-base-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problèmes de connexion à la base de données
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#erreurs-lors-de-lauthentification-microsoft" class="md-nav__link">
+    <span class="md-ellipsis">
+      Erreurs lors de l'authentification Microsoft
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problemes-avec-les-donnees-spatiales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problèmes avec les données spatiales
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="installation">Installation</h1>
+<p>Ce guide détaille les étapes nécessaires pour installer et configurer l'environnement de développement de l'application AgriCEN.</p>
+<h2 id="prerequis">Prérequis</h2>
+<p>Avant de commencer, assurez-vous que les composants suivants sont installés sur votre système :</p>
+<ul>
+<li>Python 3.8 ou supérieur</li>
+<li>PostgreSQL 12 ou supérieur avec l'extension PostGIS</li>
+<li>Git</li>
+</ul>
+<h2 id="recuperation-du-code-source">Récupération du code source</h2>
+<p>Clonez le dépôt Git de l'application :</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/CEN-Nouvelle-Aquitaine/AgriCEN.git
+<span class="nb">cd</span><span class="w"> </span>AgriCEN/Flask-Leaflet
+</code></pre></div>
+<h2 id="creation-de-lenvironnement-virtuel-python">Création de l'environnement virtuel Python</h2>
+<p>Il est recommandé d'utiliser un environnement virtuel pour isoler les dépendances de l'application :</p>
+<h3 id="sous-windows">Sous Windows</h3>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
+</code></pre></div>
+<h3 id="sous-linuxmacos">Sous Linux/macOS</h3>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate
+</code></pre></div>
+<h2 id="installation-des-dependances">Installation des dépendances</h2>
+<p>Installez toutes les dépendances nécessaires au fonctionnement de l'application :</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre></div>
+<h2 id="configuration-de-la-base-de-donnees">Configuration de la base de données</h2>
+<h3 id="creation-des-bases-de-donnees-postgresql">Création des bases de données PostgreSQL</h3>
+<p>L'application nécessite deux bases de données PostgreSQL :</p>
+<ol>
+<li>Une base principale pour les données applicatives</li>
+<li>Une base secondaire pour les données spatiales</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Se connecter à PostgreSQL en tant qu&#39;utilisateur avec des privilèges administratifs</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">agricen</span><span class="p">;</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">fonciercen</span><span class="p">;</span>
+
+<span class="c1">-- Activer l&#39;extension PostGIS sur les deux bases</span>
+<span class="err">\</span><span class="k">c</span><span class="w"> </span><span class="n">agricen</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="n">EXTENSION</span><span class="w"> </span><span class="n">postgis</span><span class="p">;</span>
+
+<span class="err">\</span><span class="k">c</span><span class="w"> </span><span class="n">fonciercen</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="n">EXTENSION</span><span class="w"> </span><span class="n">postgis</span><span class="p">;</span>
+
+<span class="c1">-- Créer un utilisateur dédié (optionnel mais recommandé)</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">agricen_user</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="s1">&#39;mot_de_passe_sécurisé&#39;</span><span class="p">;</span>
+<span class="k">GRANT</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">agricen</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">agricen_user</span><span class="p">;</span>
+<span class="k">GRANT</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">fonciercen</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">agricen_user</span><span class="p">;</span>
+</code></pre></div>
+<p>Après avoir créé les bases de données et configuré la connexion, utilisez le script <code>create_db.py</code> pour générer automatiquement toutes les tables et schémas nécessaires :</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>create_db.py
+</code></pre></div>
+<p>Ce script va automatiquement :</p>
+<ol>
+<li>Créer les schémas nécessaires (<code>saisie</code>, <code>referentiels</code>, etc.)</li>
+<li>Générer toutes les tables à partir des modèles définis dans <code>models.py</code></li>
+<li>Configurer les relations entre les tables et les contraintes</li>
+<li>Initialiser les extensions spatiales requises pour GeoAlchemy2</li>
+</ol>
+<p>Aucune manipulation manuelle des schémas ou tables n'est nécessaire.</p>
+<h3 id="fichier-env">Fichier .env</h3>
+<p>Créez un fichier <code>.env</code> à la racine du projet pour configurer les variables d'environnement :</p>
+<div class="highlight"><pre><span></span><code># Environnement
+FLASK_ENV=development
+FLASK_APP=app.py
+
+# Base de données
+DATABASE_URL=postgresql://agricen_user:mot_de_passe_sécurisé@localhost:5432/agricen
+SECONDARY_DATABASE_URL=postgresql://agricen_user:mot_de_passe_sécurisé@localhost:5432/fonciercen
+
+# Sécurité
+SECRET_KEY=générer_une_clé_aléatoire_ici
+
+# Azure AD (à remplacer par vos propres valeurs)
+CLIENT_ID=votre_client_id_azure
+CLIENT_SECRET=votre_client_secret_azure
+TENANT_ID=votre_tenant_id_azure
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Génération de clé secrète</p>
+<p>Pour générer une clé secrète sécurisée, vous pouvez utiliser la commande suivante :
+<div class="highlight"><pre><span></span><code><span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;import secrets; print(secrets.token_hex(32))&quot;</span>
+</code></pre></div></p>
+</div>
+<h3 id="configuration-microsoft-entra-id">Configuration Microsoft Entra ID</h3>
+<p>Pour utiliser l'authentification Microsoft, vous devez enregistrer votre application dans Microsoft Entra ID :</p>
+<ol>
+<li>Connectez-vous au <a href="https://entra.microsoft.com">Portail Microsoft Entra ID</a></li>
+<li>Accédez à Entra ID &gt; Applications &gt; Inscriptions d'applications &gt; Nouvelle inscription</li>
+<li>Donnez un nom à votre application</li>
+<li>Configurez les URI de redirection (ex: <code>https://localhost:8000/auth/callback</code> pour le développement local)</li>
+<li>Notez l'ID client (client_id)</li>
+<li>Dans Certificats et secrets, créez un nouveau secret client</li>
+<li>Notez la valeur du secret (client_secret)</li>
+</ol>
+<h2 id="lancement-du-serveur-de-developpement">Lancement du serveur de développement</h2>
+<p>Une fois l'installation et la configuration terminées, activez votre environnement virtuel et lancez le serveur de développement :</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span>waitress-serve<span class="w"> </span>--listen<span class="o">=</span>localhost:8800<span class="w"> </span>views:app<span class="w">  </span>
+</code></pre></div>
+<p>L'application est maintenant accessible à l'adresse <a href="http://localhost:8800">http://localhost:8800</a>.</p>
+<h2 id="resolution-des-problemes-courants">Résolution des problèmes courants</h2>
+<h3 id="problemes-de-connexion-a-la-base-de-donnees">Problèmes de connexion à la base de données</h3>
+<ul>
+<li>Vérifiez que le service PostgreSQL est bien démarré</li>
+<li>Vérifiez que les identifiants dans le fichier <code>.env</code> sont corrects</li>
+<li>Assurez-vous que l'utilisateur a les droits sur les schémas <code>saisie</code> et <code>referentiel</code></li>
+</ul>
+<h3 id="erreurs-lors-de-lauthentification-microsoft">Erreurs lors de l'authentification Microsoft</h3>
+<ul>
+<li>Vérifiez que les identifiants Entra ID sont corrects</li>
+<li>Assurez-vous que les URLs de redirection sont bien configurées dans le portail Azure</li>
+<li>Vérifiez que les permissions requises sont activées pour votre application</li>
+</ul>
+<h3 id="problemes-avec-les-donnees-spatiales">Problèmes avec les données spatiales</h3>
+<ul>
+<li>Confirmez que l'extension PostGIS est bien installée</li>
+<li>Vérifiez la connection à la base de données secondaire</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

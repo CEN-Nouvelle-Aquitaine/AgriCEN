@@ -1,0 +1,1483 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation de l'application de gestion des contrats agricoles pour le CEN">
+      
+      
+      
+      
+        <link rel="prev" href="../installation/">
+      
+      
+        <link rel="next" href="../deployment/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Configuration - Documentation AgriCEN</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="light-green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#configuration-pour-le-developpement" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../.." title="Documentation AgriCEN" class="md-header__button md-logo" aria-label="Documentation AgriCEN" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation AgriCEN
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Configuration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Accueil
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../user-guide/presentation/" class="md-tabs__link">
+          
+  
+  
+  Guide utilisateur
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../technical/architecture/" class="md-tabs__link">
+          
+  
+  
+  Documentation technique
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../installation/" class="md-tabs__link">
+          
+  
+  
+  Développement
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Documentation AgriCEN" class="md-nav__button md-logo" aria-label="Documentation AgriCEN" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Documentation AgriCEN
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Accueil
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Guide utilisateur
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Guide utilisateur
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/presentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Présentation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/login/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Connexion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/map-interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Interface cartographique
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/contract-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gestion des contrats
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/siret-lookup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Recherche SIRET
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/data-visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visualisation des données
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Documentation technique
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Documentation technique
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/data-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Modèle de données
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authentication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Développement
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Développement
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#structure-de-la-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Structure de la configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables-denvironnement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variables d'environnement
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variables d&#39;environnement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemple-de-fichier-env-complet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemple de fichier .env complet
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mode-de-developpement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mode de développement
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-de-la-base-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration de la base de données
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration de la base de données">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structure-a-deux-bases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Structure à deux bases
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creer-un-environnement-de-developpement-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      Créer un environnement de développement local
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migration-de-la-base-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migration de la base de données
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-de-lauthentification-microsoft" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration de l'authentification Microsoft
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration de l&#39;authentification Microsoft">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creation-dune-application-de-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Création d'une application de test
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-de-lauthentification-locale" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration de l'authentification locale
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-des-api-externes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration des API externes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration des API externes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-sirene" class="md-nav__link">
+    <span class="md-ellipsis">
+      API SIRENE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mock-des-reponses-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mock des réponses API
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-des-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration des logs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-des-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration des tests
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#profils-de-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Profils de configuration
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Déploiement
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#structure-de-la-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Structure de la configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables-denvironnement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variables d'environnement
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variables d&#39;environnement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemple-de-fichier-env-complet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemple de fichier .env complet
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mode-de-developpement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mode de développement
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-de-la-base-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration de la base de données
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration de la base de données">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structure-a-deux-bases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Structure à deux bases
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creer-un-environnement-de-developpement-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      Créer un environnement de développement local
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migration-de-la-base-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migration de la base de données
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-de-lauthentification-microsoft" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration de l'authentification Microsoft
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration de l&#39;authentification Microsoft">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creation-dune-application-de-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Création d'une application de test
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-de-lauthentification-locale" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration de l'authentification locale
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-des-api-externes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration des API externes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration des API externes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-sirene" class="md-nav__link">
+    <span class="md-ellipsis">
+      API SIRENE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mock-des-reponses-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mock des réponses API
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-des-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration des logs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-des-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration des tests
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#profils-de-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Profils de configuration
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="configuration-pour-le-developpement">Configuration pour le développement</h1>
+<p>Ce guide décrit les différentes options de configuration disponibles pour le développement de l'application AgriCEN.</p>
+<h2 id="structure-de-la-configuration">Structure de la configuration</h2>
+<p>La configuration de l'application est centralisée dans le fichier <code>config.py</code>. Ce fichier définit la classe <code>Config</code> qui contient toutes les variables de configuration utilisées par l'application.</p>
+<h2 id="variables-denvironnement">Variables d'environnement</h2>
+<p>Pour faciliter le développement et éviter de stocker des informations sensibles dans le code source, l'application utilise des variables d'environnement chargées depuis un fichier <code>.env</code>. Ce fichier doit être créé à la racine du projet et ne doit pas être versionné (il est listé dans <code>.gitignore</code>).</p>
+<h3 id="exemple-de-fichier-env-complet">Exemple de fichier .env complet</h3>
+<div class="highlight"><pre><span></span><code># Environnement Flask
+FLASK_ENV=development
+FLASK_APP=app.py
+FLASK_DEBUG=1
+
+# Base de données
+DATABASE_URL=postgresql://username:password@localhost:5432/agricen
+SECONDARY_DATABASE_URL=postgresql://username:password@localhost:5432/fonciercen
+
+# Sécurité
+SECRET_KEY=your_secret_key_here
+WTF_CSRF_SECRET_KEY=your_csrf_secret_key_here
+
+# Azure AD
+CLIENT_ID=your_azure_client_id
+CLIENT_SECRET=your_azure_client_secret
+TENANT_ID=your_azure_tenant_id
+
+# API SIRENE
+SIRENE_API_URL=https://api.insee.fr/entreprises/sirene/V3
+SIRENE_TOKEN=your_sirene_token
+
+# Options de débogage
+SQLALCHEMY_ECHO=true
+</code></pre></div>
+<h2 id="mode-de-developpement">Mode de développement</h2>
+<p>En mode développement (<code>FLASK_ENV=development</code>), l'application active automatiquement certaines fonctionnalités :</p>
+<ul>
+<li>Mode débogage activé (messages d'erreur détaillés)</li>
+<li>Rechargement automatique du code modifié</li>
+<li>Journalisation plus verbeuse</li>
+<li>Affichage des requêtes SQL dans la console (<code>SQLALCHEMY_ECHO=true</code>)</li>
+<li>Désactivation optionnelle de la protection CSRF pour faciliter les tests</li>
+</ul>
+<h2 id="configuration-de-la-base-de-donnees">Configuration de la base de données</h2>
+<h3 id="structure-a-deux-bases">Structure à deux bases</h3>
+<p>L'application utilise deux bases de données PostgreSQL :</p>
+<ol>
+<li><strong>Base principale</strong> (<code>agricen</code>) : Stocke les données métier (contrats, agriculteurs, etc.)</li>
+<li><strong>Base secondaire</strong> (<code>fonciercen</code>) : Stocke les données géospatiales des sites</li>
+</ol>
+<p>Cette séparation est gérée par SQLAlchemy grâce à la configuration <code>SQLALCHEMY_BINDS</code>.</p>
+<h3 id="creer-un-environnement-de-developpement-local">Créer un environnement de développement local</h3>
+<p>Pour simplifier le développement, vous pouvez créer un fichier <code>local_db.sh</code> pour initialiser rapidement des bases de données locales :</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="c1"># Créer les bases de données</span>
+psql<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;CREATE DATABASE agricen;&quot;</span>
+psql<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;CREATE DATABASE fonciercen;&quot;</span>
+
+<span class="c1"># Activer PostGIS</span>
+psql<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>-d<span class="w"> </span>agricen<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;CREATE EXTENSION postgis;&quot;</span>
+psql<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>-d<span class="w"> </span>fonciercen<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;CREATE EXTENSION postgis;&quot;</span>
+
+<span class="c1"># Créer les schémas nécessaires</span>
+psql<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>-d<span class="w"> </span>agricen<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;CREATE SCHEMA saisie;&quot;</span>
+psql<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>-d<span class="w"> </span>agricen<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;CREATE SCHEMA referentiel;&quot;</span>
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Bases de données créées avec succès&quot;</span>
+</code></pre></div>
+<h3 id="migration-de-la-base-de-donnees">Migration de la base de données</h3>
+<p>Flask-Migrate est utilisé pour gérer les migrations de schéma. Pour initialiser ou mettre à jour votre base de données :</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Initialisation (première fois uniquement)</span>
+flask<span class="w"> </span>db<span class="w"> </span>init
+
+<span class="c1"># Création d&#39;une migration après modification des modèles</span>
+flask<span class="w"> </span>db<span class="w"> </span>migrate<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Description des changements&quot;</span>
+
+<span class="c1"># Application des migrations</span>
+flask<span class="w"> </span>db<span class="w"> </span>upgrade
+</code></pre></div>
+<h2 id="configuration-de-lauthentification-microsoft">Configuration de l'authentification Microsoft</h2>
+<h3 id="creation-dune-application-de-test">Création d'une application de test</h3>
+<p>Pour le développement, vous pouvez créer une application de test dans Azure AD :</p>
+<ol>
+<li>Accédez au <a href="https://portal.azure.com">Portail Azure</a> &gt; Azure Active Directory</li>
+<li>Sélectionnez "Inscriptions d'applications" &gt; "Nouvelle inscription"</li>
+<li>Nommez votre application (ex: "AgriCEN Dev")</li>
+<li>Pour "Types de comptes pris en charge", choisissez "Comptes dans cet annuaire organisationnel uniquement"</li>
+<li>Définissez l'URI de redirection : <code>http://localhost:8000/auth/callback</code></li>
+<li>Notez l'ID d'application (client) et l'ID de l'annuaire (tenant)</li>
+<li>Créez un secret client dans "Certificats et secrets"</li>
+</ol>
+<h3 id="configuration-de-lauthentification-locale">Configuration de l'authentification locale</h3>
+<p>Pour éviter d'utiliser l'authentification Microsoft pendant le développement, vous pouvez créer un mode de développement simplifié :</p>
+<ol>
+<li>Ajoutez une option <code>USE_LOCAL_AUTH</code> dans votre fichier <code>.env</code></li>
+<li>Dans <code>auth.py</code>, implémentez une logique conditionnelle pour utiliser une authentification locale en développement</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># Exemple d&#39;implémentation dans auth.py</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;USE_LOCAL_AUTH&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;true&#39;</span><span class="p">:</span>
+    <span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">login</span><span class="p">():</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;dev-user&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Développeur&#39;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s1">&#39;dev@example.com&#39;</span><span class="p">)</span>
+        <span class="n">login_user</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+        <span class="n">session</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+            <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;map_page&#39;</span><span class="p">))</span>
+</code></pre></div>
+<h2 id="configuration-des-api-externes">Configuration des API externes</h2>
+<h3 id="api-sirene">API SIRENE</h3>
+<p>Pour le développement, vous pouvez obtenir un token de test pour l'API SIRENE :</p>
+<ol>
+<li>Créez un compte sur <a href="https://api.insee.fr">api.insee.fr</a></li>
+<li>Souscrivez à l'API "Sirene V3"</li>
+<li>Générez un token d'accès</li>
+<li>Ajoutez ce token dans votre fichier <code>.env</code></li>
+</ol>
+<h3 id="mock-des-reponses-api">Mock des réponses API</h3>
+<p>Pour développer sans dépendre des API externes, vous pouvez créer des "mocks" de réponses :</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Exemple de mock pour la fonction fetch_siret_data</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fetch_siret_data_mock</span><span class="p">(</span><span class="n">siret</span><span class="p">,</span> <span class="n">flash_messages</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="c1"># Données fictives pour le développement</span>
+    <span class="n">mock_data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;nom_societe&quot;</span><span class="p">:</span> <span class="s2">&quot;FERME DE TEST&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;categorie_juridique&quot;</span><span class="p">:</span> <span class="s2">&quot;5499&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;activite_principale&quot;</span><span class="p">:</span> <span class="s2">&quot;0111Z&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;tranche_effectif&quot;</span><span class="p">:</span> <span class="s2">&quot;11&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;adresse_etablissement&quot;</span><span class="p">:</span> <span class="s2">&quot;123 RUE DE TEST&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;commune_etablissement&quot;</span><span class="p">:</span> <span class="s2">&quot;VILLE TEST&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;nom_etablissement&quot;</span><span class="p">:</span> <span class="s2">&quot;FERME DE TEST&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">mock_data</span>
+
+<span class="c1"># Utiliser le mock en développement</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;FLASK_ENV&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;development&#39;</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;USE_MOCK_API&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;true&#39;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;USE_MOCK_API&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="c1"># Remplacer la fonction réelle par le mock</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">views</span>
+    <span class="n">views</span><span class="o">.</span><span class="n">fetch_siret_data</span> <span class="o">=</span> <span class="n">fetch_siret_data_mock</span>
+</code></pre></div>
+<h2 id="configuration-des-logs">Configuration des logs</h2>
+<p>Pour faciliter le débogage, configurez les logs en mode développement :</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Dans app.py ou views.py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;FLASK_ENV&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;development&#39;</span><span class="p">:</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+        <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+        <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(name)s</span><span class="s1"> - </span><span class="si">%(levelname)s</span><span class="s1"> - </span><span class="si">%(message)s</span><span class="s1">&#39;</span>
+    <span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+        <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span>
+        <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(name)s</span><span class="s1"> - </span><span class="si">%(levelname)s</span><span class="s1"> - </span><span class="si">%(message)s</span><span class="s1">&#39;</span>
+    <span class="p">)</span>
+</code></pre></div>
+<h2 id="configuration-des-tests">Configuration des tests</h2>
+<p>Pour configurer l'environnement de test :</p>
+<ol>
+<li>Créez un fichier <code>.env.test</code> spécifique pour les tests</li>
+<li>Utilisez une base de données dédiée aux tests</li>
+</ol>
+<div class="highlight"><pre><span></span><code># Fichier .env.test
+FLASK_ENV=testing
+DATABASE_URL=postgresql://username:password@localhost:5432/agricen_test
+SECONDARY_DATABASE_URL=postgresql://username:password@localhost:5432/fonciercen_test
+USE_LOCAL_AUTH=true
+USE_MOCK_API=true
+</code></pre></div>
+<p>Pour lancer les tests avec cette configuration :</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="k">$(</span>cat<span class="w"> </span>.env.test<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="k">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>pytest
+</code></pre></div>
+<h2 id="profils-de-configuration">Profils de configuration</h2>
+<p>Vous pouvez créer plusieurs profils de configuration pour différents scénarios de développement :</p>
+<ul>
+<li><code>.env.local</code> : Configuration locale standard</li>
+<li><code>.env.test</code> : Configuration pour les tests</li>
+<li><code>.env.docker</code> : Configuration pour le développement avec Docker</li>
+</ul>
+<p>Pour utiliser un profil spécifique :</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">ENV_FILE</span><span class="o">=</span>.env.docker
+flask<span class="w"> </span>run
+</code></pre></div>
+<p>Dans le code de l'application :</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># app.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dotenv</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dotenv</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">env_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ENV_FILE&#39;</span><span class="p">,</span> <span class="s1">&#39;.env&#39;</span><span class="p">)</span>
+<span class="n">load_dotenv</span><span class="p">(</span><span class="n">env_file</span><span class="p">)</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
