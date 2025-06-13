@@ -47,25 +47,11 @@ Cette section regroupe les informations relatives au contrat agricole :
 - **Date de signature** : date de signature du contrat
 - **Date de prise d'effet** : date de prise d'effet du contrat
 - **Date de fin** : date de fin du contrat
-
-### Types de production
-
-Dans cette section, vous pouvez spécifier :
-
-- **Type de production** : Nature de la production (céréales, élevage, viticulture, etc.)
-- **Mode de production** : Conventionnel, biologique, en conversion, etc.
-
-### Produits finis
-
-Cette section permet d'indiquer les produits issus de l'activité agricole :
-
-- **Type de produit** : Sélection multiple possible (viande, lait, céréales, etc.)
-
-### Types de milieu
-
-Cette section permet de caractériser les milieux naturels concernés :
-
-- **Type de milieu** : Sélection multiple possible (prairie, zone humide, forêt, etc.)
+- **Produits finis** : Sélection multiple possible (viande, lait, céréales, etc.)
+- **Type de milieux** : Sélection multiple possible (prairie, zone humide, forêt, etc.)
+- **Nom de la personne référente** : nom du salarié CEN référebt du contrat agricole concerné
+- **Prénom de la personne référente** : prénom du salarié CEN référebt du contrat agricole concerné
+- **Types de milieu** : Sélection multiple possible (prairie, zone humide, forêt, etc.)
 
 ## Modification d'un contrat existant
 
