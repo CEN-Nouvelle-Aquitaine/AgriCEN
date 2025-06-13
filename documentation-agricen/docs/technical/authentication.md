@@ -195,12 +195,17 @@ Mesures de sécurité mises en place :
 
 ## Gestion des sessions utilisateurs expirées :
 
-Avec Flask-session, l'objet session stocke les informations temporaires par utilisateur après qu'ils se soient logués. Par défaut ces sessions sont stockées en mode Filesystem et s'accumulent petit à petit sur le disque dans un dossier flask_session.
+Avec Flask-Session, l'objet session permet de stocker des informations temporaires par utilisateur après leur authentification. Par défaut, les sessions sont stockées sur le disque en mode filesystem, sous forme de fichiers individuels dans un répertoire flask_session.
 
-Un script shell exécuté automatique via cron a donc été mis en place pour supprimer toutes les sessions de plus de 24h. 
+- Ce mode de stockage par défaut présente l'avantage d'être simple à mettre en œuvre.
 
-Script bash >_ cleanup_sessions.sh :
+- Problème: les fichiers s'accumulent progressivement sur le disque au fil du temps.
 
+Un script shell exécuté quotidiennement via cron a donc été mis en place pour supprimer toutes les sessions de plus de 24h. 
+
+### Script de purge : `cleanup_sessions.sh`
+
+```bash
 #!/bin/bash
 
 # -------------
@@ -230,11 +235,12 @@ find "$SESSION_DIR" -type f -mmin +1440 -print -delete >> "$LOG_FILE" 2>&1
 
 # Fin de tâche
 echo "$(date '+%Y-%m-%d %H:%M:%S') - Purge terminée." >> "$LOG_FILE"
+```
 
+La tache cron associée :
 
-La tache cron:
-
+```
 0 3 * * * /root/app_agricole/AgriCEN/cleanup_sessions.sh
-
+```
 
 Piste d'amélioration: Redis ?
