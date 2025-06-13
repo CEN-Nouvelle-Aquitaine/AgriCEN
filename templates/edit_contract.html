@@ -141,7 +141,7 @@
                                         <div class="row gx-4 gy-3">
                                             <div class="col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Types de Production (bio)</label>
+                                                    <label class="form-label">Types de production (bio)</label>
                                                     <input class="form-control type-production-bio-tagify" name="type_production_bio_display" placeholder="Ajouter des types de production bio">
                                                     <input type="hidden" name="mode_production_bio" value="1"> <!-- Valeur fixe pour Bio -->
                                                     <select class="type-production-bio-select" name="type_production_bio[]" multiple hidden>
@@ -153,7 +153,7 @@
                                             </div>
                                             <div class="col-12">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Types de Production (conventionnelle)</label>
+                                                    <label class="form-label">Types de production (conventionnelle)</label>
                                                     <input class="form-control type-production-conv-tagify" name="type_production_conv_display" placeholder="Ajouter des types de production conventionnelle">
                                                     <input type="hidden" name="mode_production_conv" value="2"> <!-- Valeur fixe pour Conventionnelle -->
                                                     <select class="type-production-conv-select" name="type_production_conv[]" multiple hidden>
@@ -171,7 +171,7 @@
                                 <div class="row mt-4">
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="produit_fini_tagify" class="form-label">Produits Finis</label>
+                                            <label for="produit_fini_tagify" class="form-label">Produits finis</label>
                                             <input id="produit_fini_tagify" class="form-control" name="produit_fini_display" placeholder="Ajouter des produits finis">
                                             <select id="produit_fini" name="produit_fini" multiple hidden>
                                                 {% for value, label in form.produit_fini.choices %}
