@@ -125,7 +125,7 @@ class Contrat(db.Model):
     __tablename__ = 'contrat'
     __table_args__ = {'schema': 'saisie'}
     id_contrat = db.Column(db.Integer, primary_key=True)
-    surf_contractualisee = db.Column(db.Numeric(4, 2))
+    surf_contractualisee = db.Column(db.Numeric(7, 4))
     date_signature = db.Column(db.Date)
     date_fin = db.Column(db.Date)
     date_prise_effet = db.Column(db.Date)
